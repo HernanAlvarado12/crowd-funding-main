@@ -42,7 +42,13 @@ export default {
           DEFAULT: 'hsl(176, 50%, 47%)',
           100: 'hsl(176, 72%, 28%)'
         }
-      }
+      },
+      backgroundImage: {
+        navMob: "url('./src/assets/hero-mobile.jpg')"
+      },
+      backgroundSize: {
+        navMob: '100%'
+      },
     },
   },
   plugins: [],
