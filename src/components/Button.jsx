@@ -1,7 +1,9 @@
 
-const Button = ({ className = '', text, color, size }) => {
+const Button = ({ className = '', text, color, size, onClick = () => {} }) => {
     const colorVariants = {
-        cyan: 'text-white bg-cyan-100',
+        cyan: 'text-white bg-cyan-100 hover:bg-cyan',
+        'cyan-100': 'text-white bg-cyan',
+        'cyan-200': 'text-white bg-cyan hover:bg-cyan-100',
         black: 'bg-black'
     }
     const sizeVariants = {
@@ -12,7 +14,7 @@ const Button = ({ className = '', text, color, size }) => {
     const classList = `font-bold focus:outline-none ${colorVariants[color]} ${sizeVariants[size]} ${className}`
 
     return (
-        <button className={classList}>
+        <button className={classList} onClick={onClick}>
             {text}
         </button>
     )
