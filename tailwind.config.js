@@ -74,6 +74,11 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant('project-active', '&.project-active'),
+      addVariant('hover', '@media (any-hover: hover) { &:hover }')
+    }),
+  ],
 }
 

@@ -10,8 +10,7 @@ const CardProjectModal = ({ projects, onClick }) => {
     const previousCardRef = useRef(null)
 
     const toggleBorderPrevious = (node) => {
-        node.lastElementChild.classList.toggle('hidden')
-        node.classList.replace('border-zinc-300','border-cyan')
+        node.classList.add('project-active')
         previousCardRef.current = node
     }
 
@@ -20,25 +19,27 @@ const CardProjectModal = ({ projects, onClick }) => {
         if(!previousCardRef.current) {
             toggleBorderPrevious(target)
         }else {
-            previousCardRef.current.lastElementChild.classList.toggle('hidden')
-            previousCardRef.current.classList.replace('border-cyan', 'border-zinc-300')
+            previousCardRef.current.classList.remove('project-active')
             if(previousCardRef.current === target) {
                 previousCardRef.current = null
             }else {
                 toggleBorderPrevious(target)
             }
         }
+        if(previousCardRef.current) {
+
+        }
     }
 
     return projects.map((item, key) => (
         <CardProject 
-            className="my-3 cursor-pointer last-of-type:mb-0 last-of-type:grayscale last-of-type:opacity-75" 
+            className="group hover:cursor-pointer my-3 last-of-type:mb-0 last-of-type:grayscale last-of-type:opacity-75 project-active:border-cyan" 
             key={key} 
             title={item.title} 
             subtitle={item.subtitle} 
             text={item.text} 
             price={item.price} 
-            children={<CardPledge className="hidden" title="Enter your pledge" price={`$ ${item.price ?? 0}`} onClick={onClick} />}
+            children={<CardPledge className="hidden group-[.project-active]:block" title="Enter your pledge" price={`$ ${item.price ?? 0}`} onClick={onClick} />}
             onClick={handleCardProject} 
         />
     ))

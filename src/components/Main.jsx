@@ -77,7 +77,7 @@ const Main = () => {
                     })}
                 </section>
             </section>
-            <dialog className="w-90 max-w-5xl max-h-none mx-auto py-4 px-2 absolute top-[20%] rounded-md backdrop:bg-slate-700 backdrop:opacity-30 backdrop:select-none backdrop:shadow-sm" ref={dialogRef}>
+            <dialog className="w-90 max-w-5xl max-h-none mx-auto py-4 px-2 absolute top-[20%] rounded-md backdrop:bg-slate-700 backdrop:opacity-30 backdrop:select-none backdrop:shadow-sm" ref={dialogRef} open>
                 <div className="w-full flex items-center justify-between">
                     <h3 className="text-md font-bold">Back this project</h3>
                     <div className="w-3 h-2 flex items-center justify-center relative modal-active cursor-pointer" ref={menuDialogRef} onClick={handleToggleModal}>
