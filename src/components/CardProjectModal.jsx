@@ -16,19 +16,13 @@ const CardProjectModal = ({ projects, onClick }) => {
 
     const handleCardProject = (event) => {
         const target = event.currentTarget 
-        if(!previousCardRef.current) {
-            toggleBorderPrevious(target)
-        }else {
+        if(previousCardRef.current) {
             previousCardRef.current.classList.remove('project-active')
             if(previousCardRef.current === target) {
                 previousCardRef.current = null
-            }else {
-                toggleBorderPrevious(target)
             }
         }
-        if(previousCardRef.current) {
-
-        }
+        toggleBorderPrevious(target)
     }
 
     return projects.map((item, key) => (
